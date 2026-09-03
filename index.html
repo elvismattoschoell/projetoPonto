@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponto Inteligente</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- face-api.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.min.js"></script>
+
+    <!-- Day.js -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i data-lucide="clock"></i>
+                <h1>Controle de Ponto</h1>
+            </div>
+            <div class="current-time" id="clock-display">
+                --:--
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="card central-card">
+                <h2>Registro de Ponto</h2>
+                <p class="subtitle">Insira sua matrícula para continuar</p>
+
+                <form id="ponto-form" class="ponto-form">
+                    <div class="input-group">
+                        <label for="matricula">Matrícula</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="user"></i>
+                            <input type="text" id="matricula" placeholder="Digite sua matrícula" required autocomplete="off">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        Avançar
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>Sistema de Controle de Ponto Inteligente &copy; 2024</p>
+        </footer>
+    </div>
+
+    <!-- Scripts da aplicação -->
+    <script src="supabase.js"></script>
+    <!-- <script src="biometrics.js"></script> -->
+    <!-- <script src="timeUtils.js"></script> -->
+    <script src="app.js"></script>
+
+    <!-- Initialize Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+</body>
+</html>
