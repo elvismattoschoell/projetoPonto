@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Matrícula - Ponto Inteligente</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- EmailJS CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i data-lucide="clock"></i>
+                <h1>Controle de Ponto</h1>
+            </div>
+            <div class="current-time" id="clock-display">
+                --:--
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="card central-card">
+                <h2>Solicitar Matrícula</h2>
+                <p class="subtitle">Preencha os dados para solicitar sua matrícula</p>
+
+                <form id="cadastro-form" class="ponto-form">
+                    <div class="input-group">
+                        <label for="nome">Nome</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="user"></i>
+                            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="mail"></i>
+                            <input type="email" id="email" name="email" placeholder="Seu e-mail corporativo" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="funcao">Função</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="briefcase"></i>
+                            <select id="funcao" name="funcao" required style="width: 100%; padding: 0.75rem 1rem 0.75rem 2.75rem; border: 1px solid var(--color-border); border-radius: var(--border-radius); font-family: var(--font-family-main); font-size: 1rem; color: var(--color-text-main); appearance: none; background-color: white;">
+                                <option value="" disabled selected>Selecione a função</option>
+                                <option value="RH">RH</option>
+                                <option value="Operacional">Operacional</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="alerta-sucesso" style="display: none; padding: 1rem; margin-top: 0.5rem; background-color: #d1e7dd; color: #0f5132; border-radius: 4px; text-align: center;">
+                        Solicitação enviada com sucesso!
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="margin-top: 1rem;">
+                        Solicitar Matrícula
+                        <i data-lucide="send"></i>
+                    </button>
+
+                    <a href="index.html" class="btn-secondary" style="display: block; text-align: center; margin-top: 1rem; color: var(--color-text-muted); text-decoration: none; font-size: 0.9rem;">
+                        Voltar ao Início
+                    </a>
+                </form>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>Sistema de Controle de Ponto Inteligente &copy; 2024</p>
+        </footer>
+    </div>
+
+    <!-- Scripts da aplicação -->
+    <script src="cadastro.js"></script>
+
+    <!-- Initialize Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+</body>
+</html>

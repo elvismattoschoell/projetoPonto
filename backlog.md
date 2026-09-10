@@ -4,11 +4,14 @@
 
 ### Inicialização do Projeto
 - [x] Iniciar `backlog.md`.
-- [ ] Criar estrutura base `index.html`.
-- [ ] Criar estrutura base `style.css` (UI corporativa, clean, sem emojis).
-- [ ] Criar `app.js` (controlador principal).
-- [ ] Criar `supabase.js` com a conexão inicial utilizando credenciais fornecidas.
-- [ ] Realizar verificação dos arquivos e testes iniciais.
+- [x] Criar estrutura base `index.html`.
+- [x] Criar estrutura base `style.css` (UI corporativa, clean, sem emojis).
+- [x] Criar `app.js` (controlador principal).
+- [x] Criar `supabase.js` com a conexão inicial utilizando credenciais fornecidas.
+- [x] Realizar verificação dos arquivos e testes iniciais.
+- [x] Atualizar `index.html` com link para solicitar matrícula.
+- [x] Criar `cadastro.html` para solicitação de matrícula.
+- [x] Criar `cadastro.js` com integração EmailJS para enviar a solicitação.
 
 ### Funcionalidades Futuras Planejadas (A Definir Detalhes)
 - Configuração do `biometrics.js` (face-api.js).
