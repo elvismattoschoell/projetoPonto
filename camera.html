@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitor Biométrico - Controle de Ponto</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="camera.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- face-api.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.min.js"></script>
+
+    <!-- Day.js -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i data-lucide="clock"></i>
+                <h1>Controle de Ponto</h1>
+            </div>
+            <div class="current-time" id="clock-display">
+                --:--
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="card central-card camera-card">
+                <h2>Reconhecimento Facial</h2>
+                <p class="subtitle">Posicione seu rosto em frente à câmera</p>
+
+                <div class="employee-info-banner">
+                    <div class="employee-name" id="employee-name-display">Carregando dados...</div>
+                    <div class="employee-reg" id="employee-reg-display">Matrícula: --</div>
+                </div>
+
+                <div class="camera-container">
+                    <video id="video" autoplay muted playsinline></video>
+                    <div id="status-indicator" class="camera-overlay-status">
+                        <i data-lucide="scan"></i>
+                        <span id="status-text">Carregando leitor facial...</span>
+                    </div>
+                </div>
+
+                <button id="btn-confirmar" class="btn-primary" disabled>
+                    <i data-lucide="check-circle"></i>
+                    Confirmar Ponto
+                </button>
+
+                <button id="btn-cancelar" class="btn-secondary-action">
+                    Cancelar
+                </button>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>Sistema de Controle de Ponto Inteligente &copy; 2024</p>
+        </footer>
+    </div>
+
+    <!-- Modal de Confirmação (Oculto por padrão) -->
+    <div id="modal-confirmation" class="modal-backdrop" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-icon-success">
+                <i data-lucide="check"></i>
+            </div>
+            <h3 class="modal-title">Ponto Registrado!</h3>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;">Seu registro foi armazenado com sucesso.</p>
+
+            <div class="modal-details">
+                <div class="modal-detail-row">
+                    <span class="modal-detail-label">Funcionário:</span>
+                    <span class="modal-detail-value" id="modal-emp-name">--</span>
+                </div>
+                <div class="modal-detail-row">
+                    <span class="modal-detail-label">Matrícula:</span>
+                    <span class="modal-detail-value" id="modal-emp-reg">--</span>
+                </div>
+                <div class="modal-detail-row">
+                    <span class="modal-detail-label">Tipo:</span>
+                    <span class="modal-detail-value" id="modal-type">--</span>
+                </div>
+                <div class="modal-detail-row">
+                    <span class="modal-detail-label">Horário:</span>
+                    <span class="modal-detail-value" id="modal-time">--</span>
+                </div>
+                <div class="modal-detail-row">
+                    <span class="modal-detail-label">Status:</span>
+                    <span class="modal-detail-value" id="modal-status">--</span>
+                </div>
+            </div>
+
+            <p class="modal-redirect-text">Retornando à página inicial em <span id="countdown">5</span> segundos...</p>
+        </div>
+    </div>
+
+    <!-- Scripts da aplicação -->
+    <script src="supabase.js"></script>
+    <script src="camera.js"></script>
+
+    <!-- Initialize Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+</body>
+</html>
